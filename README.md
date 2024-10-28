@@ -1,1 +1,1 @@
-#JQuer
+#JQuery
