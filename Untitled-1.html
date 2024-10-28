@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* 整体容器样式 */
+       .container {
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            border-radius: 5px;
+        }
+
+        /* 标题样式 */
+        h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        /* 表单元素通用样式 */
+        form {
+            display: none;
+        }
+
+        form.active {
+            display: block;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #toggleButton {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>用户登录/注册</h2>
+        <!-- 登录表单 -->
+        <form id="loginForm" class="active">
+            <label for="loginPhone">手机号:</label>
+            <input type="text" id="loginPhone" required>
+            <label for="loginPassword">密码:</label>
+            <input type="password" id="loginPassword" required>
+            <button type="submit">登录</button>
+        </form>
+        <!-- 注册表单 -->
+        <form id="registerForm">
+            <label for="registerUsername">用户名:</label>
+            <input type="text" id="registerUsername" required>
+            <label for="registerPhone">手机号:</label>
+            <input type="text" id="registerPhone" required>
+            <label for="registerPassword">密码:</label>
+            <input type="password" id="registerPassword" required>
+            <label for="registerConfirmPassword">再次确认密码:</label>
+            <input type="password" id="registerConfirmPassword" required>
+            <label for="registerEmail">邮箱:</label>
+            <input type="email" id="registerEmail" required>
+            <label for="registerHobbies">爱好:</label>
+            <input type="text" id="registerHobbies">
+            <button type="submit">注册</button>
+        </form>
+        <a id="toggleButton" href="#" onclick="toggleForms()">去注册</a>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const toggleButton = document.getElementById('toggleButton');
+
+            if (loginForm.classList.contains('active')) {
+                loginForm.classList.remove('active');
+                registerForm.classList.add('active');
+                toggleButton.textContent = '去登录';
+            } else {
+                registerForm.classList.remove('active');
+                loginForm.classList.add('active');
+                toggleButton.textContent = '去注册';
+            }
+        }
+    </script>
+</body>
+
+</html>
